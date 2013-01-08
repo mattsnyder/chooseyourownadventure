@@ -5,6 +5,8 @@
   App.ViewModels.Overflow = (function() {
 
     function Overflow() {
+      this.addQuestion = __bind(this.addQuestion, this);
+
       this.loginUser = __bind(this.loginUser, this);
 
     }
@@ -13,8 +15,23 @@
 
     Overflow.prototype.isLoggedIn = ko.observable(false);
 
+    Overflow.prototype.newQuestionText = ko.observable("");
+
+    Overflow.prototype.questions = ko.observableArray([]);
+
     Overflow.prototype.loginUser = function() {
       return this.isLoggedIn(this.userName !== "");
+    };
+
+    Overflow.prototype.addQuestion = function() {
+      var questionData, questionViewModel;
+      questionData = {
+        content: this.newQuestionText(),
+        author: this.userName()
+      };
+      questionViewModel = new App.ViewModels.Question(questionData);
+      this.questions.push(questionViewModel);
+      return this.newQuestionText("");
     };
 
     return Overflow;

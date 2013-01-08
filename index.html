@@ -24,10 +24,10 @@
 	            userName" />
 	            <a id="logIn" class="button" data-bind="click: loginUser">That's me!</a>
 	        </div>
-	        <div id="newQuestionView">
-	            <label for="newQuestion" id="questionPrompt">Adventurer wants to know...</label>
-	            <textarea cols=20 rows=2 id="newQuestion" name="newQuestion"></textarea>
-	            <a id="addItem" class="button">Ask now!</a>
+	        <div id="newQuestionView" data-bind="visible: isLoggedIn()">
+	            <label for="newQuestion" id="questionPrompt"><span data-bind="text: userName"></span> wants to know...</label>
+                    <textarea cols=20 rows=2 id="newQuestion" data-bind="value: newQuestionText"></textarea>
+	            <a id="addItem" data-bind="click: addQuestion" class="button">Ask now!</a>
 	        </div>
 	    </section>
 	    <ul id="questions">
@@ -55,6 +55,7 @@
 	      </li>
 	    </ul>
 	</div>
+  <script type="text/javascript" src="scripts/question-viewmodel.js"></script>
   <script type="text/javascript" src="scripts/overflow-viewmodel.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
 </body>
