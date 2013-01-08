@@ -18,7 +18,7 @@
 	</header>
 	<div class="content">
     <section id="userInput">
-	        <div id="loginView">
+	        <div id="loginView" data-bind="visible: !isLoggedIn()">
 	            <label for="userName" id="logInPrompt">Your name:</label>
 	            <input id="userName" type="text" data-bind="value:
 	            userName" />
