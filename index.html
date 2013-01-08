@@ -7,6 +7,7 @@
     <link type="text/css" rel="stylesheet" href="overflow.css">
     <script type="text/javascript" src="vendor/underscore-min.js"></script>
     <script type="text/javascript" src="vendor/jquery-1.8.2.min.js"></script>
+    <script type='text/javascript' src='vendor/knockout-2.1.0.js'></script>
     <script type="text/javascript" src="scripts/namespaces.js"></script>
 </head>
 <body>
@@ -19,8 +20,9 @@
     <section id="userInput">
 	        <div id="loginView">
 	            <label for="userName" id="logInPrompt">Your name:</label>
-	            <input id="userName" type="text"/>
-	            <a id="logIn" class="button">That's me!</a>
+	            <input id="userName" type="text" data-bind="value:
+	            userName" />
+	            <a id="logIn" class="button" data-bind="click: loginUser">That's me!</a>
 	        </div>
 	        <div id="newQuestionView">
 	            <label for="newQuestion" id="questionPrompt">Adventurer wants to know...</label>
@@ -53,7 +55,7 @@
 	      </li>
 	    </ul>
 	</div>
-
+  <script type="text/javascript" src="scripts/overflow-viewmodel.js"></script>
   <script type="text/javascript" src="scripts/app.js"></script>
 </body>
 </html>
