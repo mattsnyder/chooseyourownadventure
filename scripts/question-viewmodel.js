@@ -12,7 +12,7 @@
       this.author = questionData.author;
       this.votes = ko.observableArray(questionData.votes || []);
       this.voteTally = ko.computed(function() {
-        return _this.votes().length;
+        return _this.votes().reduce(_this.addVoteToTally, 0);
       });
     }
 
@@ -23,6 +23,10 @@
         value: voteValue,
         voter: voter
       });
+    };
+
+    Question.prototype.addVoteToTally = function(tally, vote) {
+      return tally + vote.value;
     };
 
     return Question;
