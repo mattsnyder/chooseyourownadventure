@@ -2,6 +2,7 @@
 (function() {
 
   $(function() {
+    App.socket = io.connect();
     window.overflowViewModel = new App.ViewModels.Overflow();
     return ko.applyBindings(overflowViewModel);
   });
